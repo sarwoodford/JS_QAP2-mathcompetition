@@ -27,7 +27,26 @@ function getQuestion() {
  * @returns {boolean} True if the answer was correct, false otherwise.
  */
 function isCorrectAnswer(question, answer) {
-    return false;
+    let correctAnswer;
+
+    switch (question.operator){
+        case '+':
+            correctAnswer = question.num1 + question.num2;
+            break;
+        case '-':
+            correctAnswer = question.num1 - question.num2;
+            break;
+        case '*':
+            correctAnswer = question.num1 * question.num2;
+            break;
+        case '/':
+            correctAnswer = question.num1 / question.num2;
+            break;
+        default: 
+            return false;
+    }
+
+    return parseInt(answer) === correctAnswer;
 }
 
 module.exports = {
