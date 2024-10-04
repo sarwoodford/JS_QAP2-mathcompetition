@@ -1,8 +1,14 @@
 const { isCorrectAnswer, getQuestion } = require("../../utils/mathUtilities");
 
-// describe("Tests for getQuestion", () => {
+describe("Tests for getQuestion", () => {
+    test('should generate a question with 2 randomized numbers and a randomized operator', () => {
+        const question = getQuestion();
 
-// });
+        expect(typeof question.num1).toBe('number');
+        expect(typeof question.num2).toBe('number');
+        expect(['+', '-', '*', '/']).toContain(question.operator);
+    })
+});
 
 describe("Tests for isCorrectAnswer", () => {
     test('should return true for a correct addition equation', () => {
