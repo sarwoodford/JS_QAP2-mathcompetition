@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const mathUtilities = require('./utils/mathUtilities');
 const port = 3000;
 
 app.set('view engine', 'ejs');
@@ -13,7 +14,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/quiz', (req, res) => {
-    res.render('quiz');
+    const question = mathUtilities.getQuestion();
+
+    res.render('quiz', { question });
 });
 
 //Handles quiz submissions.
