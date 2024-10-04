@@ -46,3 +46,20 @@ body {
 .index_container .navigation__container :last-child {
     margin-right: 0px
 }
+
+#questionHead{
+    padding: 80px 0px 2px 2px;
+}
+
+#question{
+    padding: 100px 5px 2px 5px;
+    font-weight: bold;
+    font-size: 14pt;
+    color: rgb(8, 8, 51)
+}
+
+
+#answer{
+    margin-top: 120px;
+    padding-right: 5px;
+}
