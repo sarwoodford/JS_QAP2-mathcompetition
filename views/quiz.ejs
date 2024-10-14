@@ -11,11 +11,16 @@
     </p>
 
     <form action="/quiz" method="POST">
+        <input type = "hidden" name = "streak" value = <%=streak %>
         <!-- This handles sending the user's answer back to the server. It's not recommended you modify this, as you shouldn't need to -->
         <label for="answer">Your Answer:</label>
         <input type="text" id="answer" name="answer" required>
         <button type="submit">Submit</button>
     </form>
+
+    <p>
+        Current Streak: <%= streak %>
+    </p>
 
     <form action="/" method="GET">
         <button type="submit">Exit Quiz</button>
