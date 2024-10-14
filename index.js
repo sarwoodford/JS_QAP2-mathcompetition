@@ -40,7 +40,7 @@ app.post('/quiz', (req, res) => {
         leaderboard = leaderboard.sort(( a, b ) => b.streak - a.streak).slice(0, 10); // keep top 10 streaks
     }
 
-    redirect(`/quiz?streak=${newStreak}`);
+    res.redirect(`/quiz?streak=${newStreak}`);
     console.log(`Answer: ${answer}`);
 
     //answer will contain the value the user entered on the quiz page
