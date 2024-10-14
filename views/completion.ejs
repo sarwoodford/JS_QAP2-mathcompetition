@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<h1> 
+    Quiz Completed! 
+</h1>
+<p>
+    Your Streak: <%= currentStreak %> !
+</p>
+
+<form action="/quiz" mathod="GET">
+    <!-- streak passed to quiz -->
+    <input type="hidden" name="streak" value="<%= currentStreak %>">
+    <button type="submit">Start New Quiz</button>
+</form>
+
+<form action="/" method="GET">
+    <button type="submit">Return to Home</button>
+</form>
