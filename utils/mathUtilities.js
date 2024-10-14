@@ -16,6 +16,9 @@ function getQuestion() {
     const num2 = Math.floor(Math.random() * 10 + 1); // generates a random 2nd number 1-10
     const operator = getOperator();
 
+    if (operator === '/' && num1 % num2 !==0 ){
+        return getQuestion();
+    }
     return { num1, num2, operator, };
 }
 
