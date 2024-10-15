@@ -32,21 +32,22 @@
         </div>
         <div class="motivation">
             <p id="motivationMessage">
-                <% if(streak >0){ %>
-                    Keep it up!
-                <% }else if(streak >= 3){ %>
-                    You're on a roll!
-                <% } else if(streak >= 5){ %>
-                    You're on fire!
-                <% } else if(streak >= 8){ %>
-                    Wow! You're a pro!
-                <% } else if(streak >= 10){ %>
-                    Double digits! Keep it up!
+
+                <% if(streak >=16) {%>
+                    Great work! Gold star!
                 <% } else if(streak >= 13){ %>
                     You're doing awe-sum!
-                <% } else if(streak >= 16){ %>
-                    Great work! Gold star!
-                <% } else{ %>
+                <% } else if(streak >= 10){ %>
+                    Double Digits! Keep it up!
+                <% } else if(streak >= 8){ %>
+                    Wow! You're a pro!
+                <% } else if(streak >= 5){ %>
+                    You're on fire!
+                <% } else if(streak >= 3){ %>
+                    You're on a roll!
+                <% }else if(streak > 0){ %>
+                    Keep it up!
+                <% }else{ %>
                     Get started!
                 <% } %>
             </p>
