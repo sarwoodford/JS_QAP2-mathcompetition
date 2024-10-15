@@ -23,14 +23,14 @@ app.get('/quiz', (req, res) => {
     const question = mathUtilities.getQuestion();
     const streak = req.query.streak || 0; // streak default is 0 if none recorded
 
-    res.render('quiz', { question, streak });
+    res.render('quiz', { question, streak: streak});
 });
 
 //Handles quiz submissions.
 app.post('/quiz', (req, res) => {
-    const { answer, streak } = req.body;
-    const question = mathUtilities.getQuestion();
-    const isCorrect = mathUtilities.isCorrectAnswer( question, answer );
+    const { answer, streak, question } = req.body;
+    const parseQuestion = JSON.parse(question);
+    const isCorrect = mathUtilities.isCorrectAnswer( parseQuestion, answer );
 
     let newStreak = isCorrect ? parseInt(streak) + 1 : 0;
 
@@ -40,7 +40,7 @@ app.post('/quiz', (req, res) => {
         leaderboard = leaderboard.sort(( a, b ) => b.streak - a.streak).slice(0, 10); // keep top 10 streaks
     }
 
-    res.redirect(`/quiz?streak=${newStreak}`);
+    res.redirect(`/quiz?streak=${newStreak}&question=${JSON.stringify(mathUtilities.getQuestion())}`);
     console.log(`Answer: ${answer}`);
 
     //answer will contain the value the user entered on the quiz page
