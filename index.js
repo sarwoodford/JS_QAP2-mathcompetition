@@ -34,18 +34,44 @@ app.post('/quiz', (req, res) => {
 
     let newStreak = isCorrect ? parseInt(streak) + 1 : 0;
 
-    // make sure incorrect answers reset streak 
+    // make sure incorrect answers reset streak and previous streak is pushed to leaderboard
     if (!isCorrect){
-        leaderboard.push({ streak: parseInt( streak ), date: new Date().toLocaleString(), correctAnswers: parseInt(streak) });
-        leaderboard = leaderboard.sort(( a, b ) => b.streak - a.streak).slice(0, 10); // keep top 10 streaks
-    }
+            leaderboard.push({ 
+                streak: parseInt(streak), 
+                date: new Date().toLocaleString(), 
+                correctAnswers: parseInt(streak) 
+            });
+
+        leaderboard.sort(( a, b ) => b.streak - a.streak); // sort streaks highest to lowest
+        leaderboard = leaderboard.slice(0, 10); // keep top 10 streaks 
+        }
+    console.log(`Answer: ${answer}`);
+    console.log(leaderboard)
+    console.log(`is correct: ${isCorrect}`);
+    console.log(`current streak: ${streak}`);
+    console.log(`updated streak: ${newStreak}`);
 
     res.redirect(`/quiz?streak=${newStreak}&question=${JSON.stringify(mathUtilities.getQuestion())}`);
-    console.log(`Answer: ${answer}`);
 
     //answer will contain the value the user entered on the quiz page
     //Logic must be added here to check if the answer is correct, then track the streak and redirect properly
-    
+});
+
+app.post('/exit', (req, res) => {
+    const { streak } = req.body;
+
+    if(parseInt(streak) > 0){
+        leaderboard.push({
+            streak: parseInt(streak),
+            date: new Date().toLocaleString(),
+            correctAnswers: parseInt(streak)
+        });
+
+        leaderboard.sort((a, b) => b.streak - a.streak);
+        leaderboard = leaderboard.slice(0,10);
+    }
+
+    res.redirect(`/completion?streak=${streak}`);
 });
 
 app.get('/completion', ( req, res ) => {
