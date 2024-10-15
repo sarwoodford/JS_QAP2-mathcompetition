@@ -102,3 +102,22 @@ body {
     margin-top: 50px;
     padding-right: 150px;
 }
+
+.completion{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    margin-left: 450px;
+    padding: 20px;
+}
+
+#yourStreak{
+    font-size: 25pt;
+    background-color: white;
+    color: orange;
+    padding: 5px;
+}

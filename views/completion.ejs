@@ -3,16 +3,24 @@
 <h1> 
     Quiz Completed! 
 </h1>
-<p>
-    Your Streak: <%= currentStreak %> !
-</p>
+<div class="completion">
+    <p id="yourStreak">
+        Your Streak: <%= currentStreak %> !
+        <img src="/photos/flame.avif" alt="flame" width="25px">
+    </p>
 
-<form action="/quiz" mathod="GET">
-    <!-- streak passed to quiz -->
-    <input type="hidden" name="streak" value="<%= currentStreak %>">
-    <button type="submit">Start New Quiz</button>
-</form>
 
-<form action="/" method="GET">
-    <button type="submit">Return to Home</button>
-</form>
+    <p>
+        start a new quiz to beat this streak, or return to home!
+    </p>
+
+    <form action="/quiz" mathod="GET">
+        <!-- streak passed to quiz -->
+        <input type="hidden" name="streak" value="<%= currentStreak %>">
+        <button type="submit">Start New Quiz</button>
+    </form>
+
+    <form action="/" method="GET">
+        <button type="submit">Return to Home</button>
+    </form>
+</div>

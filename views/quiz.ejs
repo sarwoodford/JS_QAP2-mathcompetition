@@ -24,8 +24,9 @@
         <img src="/photos/flame.avif" alt="flame" width="20px">
     </p>
 
-    <form action="/" method="GET">
-        <button type="submit" id="quitBtn">Return to Home</button>
+    <form action="/completion" method="GET">
+        <input type="hidden" name="streak" value="<%= streak %>">
+        <button type="submit" id="quitBtn">Finish Quiz</button>
     </form>
 </body>
 </div>
