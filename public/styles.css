@@ -73,8 +73,32 @@ body {
     display: flex;
     height: 200px;
     width: 1200px;
-    border: 1px solid black;
+    border: 1px solid blue;
     align-self: center;
     margin: 0 auto;
     margin-top: 100px;
+}
+
+#quitBtn{
+    margin-left: -50px;
+    position: absolute;
+    margin-top: 150px;
+}
+
+#currentStreak{
+    margin-left: 280px;
+    background-color: white;
+    color: blue;
+    height: fit-content;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.leaderboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-right: 150px;
 }

@@ -3,7 +3,7 @@
 
     <!-- Display question or whatever else here -->
     <h1>Math Quiz</h1>
-    <div class="quizDiv">
+<div class="quizDiv">
     <p id="questionHead">Answer the question below:</p>
     <!-- display question -->
     <p id="question">
@@ -18,12 +18,13 @@
         <button type="submit">Submit</button>
     </form>
 
-    <p>
-        Current Streak: <%= streak %>
+    <p id="currentStreak">
+        Current Streak: <%= streak %> 
+        <img src="/photos/flame.avif" alt="flame" width="20px">
     </p>
 
     <form action="/" method="GET">
-        <button type="submit">Exit Quiz</button>
+        <button type="submit" id="quitBtn">Return to Home</button>
     </form>
 </body>
 </div>

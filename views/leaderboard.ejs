@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<h1>Leaderboard</h1>
+
+<div class="leaderboard">
+<h3>Top 10 Streaks</h3>
+<p><i>can you make it to the top</i></p>
+
+<% if(leaderboard.length > 0){ %>
+    <ul>
+        <% leaderboard.forEach(function( entry, index ) { %>
+            <li>
+                <%= index + 1 %> Streak: <%= entry.streak %> | 
+                Correct Answers: <%= entry.correctAnswers %> | 
+                Date: <%= entry.date %>
+            </li>
+       <%  }) %>
+    </ul>
+    <% } else { %>
+        <p>No Streaks Yet, Check Back Later! </p>
+        <% } %>
+<form action="/" method="GET">
+    <button type="submit">Return to Home</button>
+</form>
+</div>
