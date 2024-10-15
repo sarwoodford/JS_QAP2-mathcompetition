@@ -3,31 +3,55 @@
 
     <!-- Display question or whatever else here -->
     <h1>Math Quiz</h1>
-<div class="quizDiv">
-    <p id="questionHead">Answer the question below:</p>
-    <!-- display question -->
-    <p id="question">
-        what is <%= question.num1 %> <%= question.operator %> <%= question.num2 %> ?
-    </p>
+<div class="quizCont">
+    <div class="quizDiv">
+        <p id="questionHead">Answer the question below:</p>
+        <!-- display question -->
+        <p id="question">
+            what is <%= question.num1 %> <%= question.operator %> <%= question.num2 %> ?
+        </p>
 
-    <form action="/quiz" method="POST">
-        <input type = "hidden" name = "streak" value = "<%= streak %>">
-        <input type="hidden" name="question" value='<%= JSON.stringify(question) %>'>
-        <!-- This handles sending the user's answer back to the server. It's not recommended you modify this, as you shouldn't need to -->
-        <label for="answer">Your Answer:</label>
-        <input type="text" id="answer" name="answer" required>
-        <button type="submit">Submit</button>
-    </form>
+        <form action="/quiz" method="POST">
+            <input type = "hidden" name = "streak" value = "<%= streak %>">
+            <input type="hidden" name="question" value='<%= JSON.stringify(question) %>'>
+            <!-- This handles sending the user's answer back to the server. It's not recommended you modify this, as you shouldn't need to -->
+            <label for="answer">Your Answer:</label>
+            <input type="text" id="answer" name="answer" required>
+            <button type="submit">Submit</button>
+        </form>
 
-    <p id="currentStreak">
-        Current Streak: <%= streak %> 
-        <img src="/photos/flame.avif" alt="flame" width="20px">
-    </p>
+        <p id="currentStreak">
+            Current Streak: <%= streak %> 
+            <img src="/photos/flame.avif" alt="flame" width="20px">
+        </p>
 
-    <form action="/completion" method="GET">
-        <input type="hidden" name="streak" value="<%= streak %>">
-        <button type="submit" id="quitBtn">Finish Quiz</button>
-    </form>
+        <form action="/completion" method="GET">
+            <input type="hidden" name="streak" value="<%= streak %>">
+            <button type="submit" id="quitBtn">Finish Quiz</button>
+        </form>
+        </div>
+        <div class="motivation">
+            <p id="motivationMessage">
+                <% if(streak >0){ %>
+                    Keep it up!
+                <% }else if(streak >= 3){ %>
+                    You're on a roll!
+                <% } else if(streak >= 5){ %>
+                    You're on fire!
+                <% } else if(streak >= 8){ %>
+                    Wow! You're a pro!
+                <% } else if(streak >= 10){ %>
+                    Double digits! Keep it up!
+                <% } else if(streak >= 13){ %>
+                    You're doing awe-sum!
+                <% } else if(streak >= 16){ %>
+                    Great work! Gold star!
+                <% } else{ %>
+                    Get started!
+                <% } %>
+            </p>
+        </div>
+    </div>
 </body>
 </div>
 </html>
